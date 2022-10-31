@@ -1,0 +1,57 @@
+﻿@model FPTBook.Models.Book
+@{
+    Layout = "Homepage";
+}
+<link rel="stylesheet" href="{/css/Detail}">
+<div class="preview_main">
+    <div class="preview_content">
+        <!-- Begin New Product -->
+        <div class="preview_top">
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-1">
+                                <img src="@Model.BookImage">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details col-md-6">
+                        <h3 class="product-title">@Model.BookTitle</h3>
+                        <h4 class="price">Price: <span>@Model.BookPrice</span></h4>
+                        <h4 class="price">Quantity: <span>@Model.BookQuantity</span></h4>
+                        <h4 class="price">Author: <span>@Model.BookAuthor</span></h4>
+                        <h4 class="price">Category: <span>@Model.Category.CatName</span></h4>
+                        <p class="product-description">Description: @Model.BookDescription</p>
+                        <p class="Key">
+                            <strong>
+                                KEY ATTRIBUTES : <br>
+                                •	Jute Potli <br>
+                                •	Pink Carnations (5 units) <br>
+                                •	Purple Statice <br>
+                                •	Blue Floral Printed Paper Bag <br>
+                                •	Size : 25cm X 2.5cm X 25cm (l x b)
+                            </strong>
+                        </p>
+
+                        <div class="buy">
+                            <form method="post" asp-controller="Order" asp-action="Order_Book">
+                                <input type="hidden" name="id" value="@Model.Id">
+                                <div class="form-group">
+                                    <b><label for="formGroupExampleInput" style="font-family:'Rubik', sans-serif; font-size:15px;">Oder Quanyity: </label></b>
+                                    <input type="number" name="quantity" min="1" max="@Model.BookQuantity">
+                                </div>
+                                <input type="submit" class="btn btn-outline-info" value="Add to cart">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,383 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/Homepage.css">
+    <script src="https://kit.fontawesome.com/1e27f03b11.js" crossorigin="anonymous"></script>
+    @*    <link rel="icon" href="images/mixifavicion.png" type="" sizes="30x30">*@
+    <title>Book Store</title>
+</head>
+<style>
+    .header {
+        position: relative;
+        width: 100%;
+        z-index: 10;
+        background: #eca0b5;
+    }
+
+    .icon {
+        margin: 70px 100px 10px 10px;
+    }
+
+    .header_search {
+        margin-top: 40px;
+    }
+
+    .button-Asc {
+        margin: 65px 10px;
+    }
+
+    .button-Des {
+        margin: 65px 50px 10px 10px;
+    }
+
+    .logo {
+        margin-top: 65px;
+        /*      text-align: center;*/
+    }
+
+    div {
+        display: block;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .main_nav {
+        width: 100%;
+        border-top: solid 1px #f2f2f2;
+        box-shadow: 0px 5px 20px rgb(0 0 0 / 10%);
+        background: #FFFFFF;
+        font-family: inherit;
+        font-size: 18px;
+    }
+
+    a, a:hover, a:visited, a:active, a:link {
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        color: black;
+        font-family: cursive;
+        -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+        text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
+    }
+
+    .content_top .heading h3 {
+        margin-left: 8%;
+        margin-top: 2%;
+        font-family: cursive;
+        font-size: 23px;
+    }
+
+    .footer .aboutus p, .footer .support p, .footer .listproduct ul, .footer .information ul {
+        margin-top: 30px;
+        font-family: cursive;
+        font-size: 1.1rem;
+    }
+
+    h3 {
+        font-family: cursive;
+        font-size: 1.5rem;
+    }
+
+    .top_bar {
+        width: 100%;
+        height: 56px;
+        background: #eca0b5;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+        z-index: 2;
+    }
+
+    .footer {
+        clear: both;
+        padding-top: 25px;
+        padding-bottom: 320px;
+        border-top: 1px solid rgb(8, 158, 245);
+        box-sizing: border-box;
+        background: #eca0b5;
+    }
+
+    .section .grid_1_of_4 {
+        width: calc(20%- 5px);
+        float: left;
+        margin: 7px;
+        border: 1px solid #a89a9a;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+</style>
+<header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <div class="super_container">
+        <!-- Header -->
+        <header class="header">
+            <!-- Top Bar -->
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex flex-row">
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon">
+                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918577/phone.png"
+                                     alt="">
+                            </div>
+                            +91 9823 132 111
+                        </div>
+                        <div class="top_bar_contact_item">
+                            <div class="top_bar_icon">
+                                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918597/mail.png"
+                                     alt="">
+                            </div>
+                            <a href="mailto:fastsales@gmail.com">bookstore@gmail.com</a>
+                        </div>
+
+
+
+                        @*them*@
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+                        {
+                            @*  <ul class="navbar-nav">*@
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <div class="top_bar_content ml-auto">
+                                    <div class="top_bar_user">
+                                        <div class="nav-item-login">
+                                            <a class="nav-link text-dark" asp-controller="Book" asp-action="Index" title="Manage">Welcome @User.Identity.Name!</a>
+                                        </div>
+                                        <div class="nav-item-login">
+                                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                <button type="submit" class="nav-link btn btn-link text-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="top_bar_user">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                    </li>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div class="top_bar_content ml-auto">
+                                <div class="top_bar_user">
+                                    <div class="user_icon">
+                                        <i class="fa-solid fa-question"></i>
+                                    </div>
+                                    <div><a asp-controller="Book" asp-action="Help">Help</a></div>
+                                </div>
+                                <div class="top_bar_user">
+                                    <div class="user_icon">
+                                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg"
+                                         alt="">
+                                    </div>
+                                    <div><a asp-area="Identity" asp-page="/Account/Login">Login</a></div>
+                                </div>
+                                <div class="top_bar_user">
+                                    <div class="user_icon">
+                                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg"
+                                         alt="">
+                                    </div>
+                                    <div><a asp-area="Identity" asp-page="/Account/Register">Register</a></div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+    </div> <!-- Header Main -->
+    <div class="header_main">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                @* <div class="col-lg-2 col-sm-3 col-3 order-1">*@
+                @*<div class="col d-flex flex-row">*@
+                <div class="col-md-3 col-md-offset-3">
+                    <div class="Logo">
+                        <a asp-controller="Book" asp-action="Index">
+                            <img class="d-block w-100" src="/image/logo.png" width="550px">
+                        </a>
+                    </div>
+                </div>
+                <br>
+                <!-- Search -->
+                <div class="col-lg-4 col-2 text-lg-left">
+                    @* <div class="col d-flex flex-row">*@
+                    <div class="header_search">
+                        <div class="header_search_content">
+                            <div class="header_search_form_container">
+                                <form asp-controller="Book" asp-action="Search" class="header_search_form clearfix" method="POST">
+
+                                    <input type="search" class="header_search_input" name="keyword" placeholder="Search for products...">
+                                    <div class="custom_dropdown" style="display: none;">
+                                        <div class="custom_dropdown_list">
+                                            <span class="custom_dropdown_placeholder clc"></span> <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="header_search_button trans_300"
+                                            value="Submit">
+                                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
+                                             alt="">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon">
+                    <div class="col-md-4 col-md-push-4">
+                        <a class="" asp-controller="Order" asp-action="List">
+                            <i class="fa-solid fa-cart-shopping" style="font-size: 26px"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="button-Asc">
+                    <div class="col-md-4 col-md-push-4">
+                        <a class="btn btn-outline-success" asp-controller="Book" asp-action="SorPriceAsc">
+                            Asc
+                        </a>
+                    </div>
+                </div>
+                <div class="button-Des">
+                    <div class="col-md-4 col-md-push-4">
+                        <a class="btn btn-outline-info" asp-controller="Book" asp-action="SortPriceDesc">
+                            Desc
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="main_nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="main_nav_content d-flex flex-row">
+                                <div class="main_nav_content d-flex flex-row">
+                                    <nav class="navbar navbar-expand-lg navbar-light">
+                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                            <ul class="navbar-nav text-center mr-auto">
+                                                <li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
+                                                    <a class="nav-link" asp-controller="Book" asp-action="Index">
+                                                        Homepage
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
+                                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                                       aria-haspopup="true" aria-expanded="false">
+                                                        Categories
+                                                    </a>
+                                                    <div class="dropdown-menu">
+                                                        <div class="agile_inner_drop_nav_info p-4">
+                                                            <div class="row">
+                                                                <div class="col-sm-6 multi-gd-img">
+                                                                    <ul class="multi-column-dropdown">
+                                                                   @*     @foreach (var c in ViewBag.Categories)
+                                                                        {
+                                                                            <li class="hassubs">
+                                                                                <a asp-controller="Book" asp-action="CatBook" asp-route-id="@c.Id" class="col-lg-12 mr-2">
+                                                                                    @c.CatName
+                                                                                </a>
+                                                                            </li>
+                                                                        }*@
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+                                                    <a class="nav-link" asp-controller="Book" asp-action="Index">All Products</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" asp-controller="Book" asp-action="ContactUs">Contact Us</a>
+                                                </li>
+
+                                                <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+                                                    <a class="nav-link" asp-controller="Book" asp-action="Feedback">Feedback</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- //navigation -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+       
+        <br>
+</header>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="footer">
+        <div class="FTInfor">
+            <div class="aboutus">
+                <h3>About us</h3>
+                <p>
+                    The official and only website of MDAshop.
+                    <br>
+                    Currently, we only accept orders on the website, not anywhere else!
+                    <br>
+                    <br>
+                    Thanks !!!
+                </p>
+            </div>
+            <div class="listproduct">
+                <h3>List product</h3>
+                <ul>
+                    <li>Romantic</li>
+                    <li>Finction</li>
+                    <li>Kid</li>
+                    <li>Technology</li>
+                </ul>
+            </div>
+            <div class="information">
+                <h3>Information</h3>
+                <ul>
+                    <li>Introduction</li>
+                    <li>Privacy Policy</li>
+                    <li>Rules</li>
+                    <li>Sitemap</li>
+                </ul>
+            </div>
+            <div class="support">
+                <h3>Support</h3>
+                <p>For any questions and suggestions <br> Please contact +84 126 874 829</p>
+            </div>
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+</footer>
+</html>

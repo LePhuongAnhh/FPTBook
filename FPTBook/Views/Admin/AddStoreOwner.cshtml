@@ -1,0 +1,46 @@
+﻿@model FPTBook.Models.StoreOwner
+<form method="post" asp-controller="Admin" asp-action="AddStoreOwner">
+    <h2 class="cangiua gachchan text-center">Add StoreOwner Account</h2>
+    
+        <input class="form-control" asp-for="@Model.Id" hidden />
+ 
+    <div class="form-group">
+        <label class="h4 text-success" asp-for="@Model.SId">StoreOwner's ID</label>
+        <input class="form-control" asp-for="@Model.SId" />
+        <span class="text-danger" asp-validation-for="@Model.SId"></span>
+    </div>
+    <div class="form-group">
+        <label class="h4 text-success">Full Name</label>
+        <input class="form-control" asp-for="@Model.SName" />
+        <span class="text-danger" asp-validation-for="@Model.SName"></span>
+    </div>
+    <div class="form-group">
+        <label class="h4 text-success" asp-for="@Model.SPhone">StoreOwner's Phone</label>
+        <input class="form-control" asp-for="@Model.SPhone" />
+        <span class="text-danger" asp-validation-for="@Model.SPhone"></span>
+    </div>   
+    <div class="form-group">
+        <label class="h4 text-success" asp-for="@Model.SUsername">Username </label><br>
+        <input class="form-control mt-3" asp-for="@Model.SUsername" />
+        <span class="text-danger" asp-validation-for="@Model.SUsername"></span>
+    </div>
+
+ 
+
+    <div class="form-group">
+        <label class="h4 text-success" asp-for="@Model.SGender">Gender</label><br />
+        Male <input type="radio" name="SGender" value='M' />
+        Female <input type="radio" name="SGender" value='F' />
+        Other <input type="radio" name="SGender" value='O' />
+    </div>
+ <
+    <div class="form-group">
+        <label class="h4 text-success" asp-for="@Model.SAvatar"> Avatar</label><br>
+       
+        <input class="form-control mt-3" asp-for="@Model.SAvatar" />
+        <span class="text-danger" asp-validation-for="@Model.SAvatar"></span>
+    </div>
+    <div class="form-group">        
+        <input type="submit" class="btn btn-warning" value="Add" />
+    </div>
+</form>
