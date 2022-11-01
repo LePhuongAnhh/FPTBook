@@ -1,9 +1,8 @@
 ﻿@model FPTBook.Models.Customer
-@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator")){
 <section style="background-color: #eee;">
     <div class="container py-4">
         <div>
-           <h1 class="text-center">Customer's Information</h1><br />
+            <h1 class="text-center">Customer's Information</h1><br />
         </div>
         <div class="row">
             <div class="col-lg-4">
@@ -11,13 +10,13 @@
                     <div class="card-body text-center">
                         <img class="rounded-circle img-fluid" style="width: 150px;" src="@Model.CAvatar">
                         <h5 class="text-muted mb-4">Customer</h5>
-                        <h5 class="my-3">@Model.CName</h5>   
+                        <h5 class="my-3">@Model.CName</h5>
                         <h5 class="text-muted mb-4">Customer's Id: @Model.CId</h5>
-                        <div class="d-flex justify-content-center mb-1">                          
+                        <div class="d-flex justify-content-center mb-1">
                             <button type="button" class="btn btn-outline-primary ms-3">Message</button>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
 
             <div class="col-lg-8">
@@ -64,12 +63,20 @@
                                 <p class="mb-0">Gender</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">@Model.CGender
-                              @*  @if(@Model.CGender == 'F')
-                                {
-                                    <div>Male</div>
-                                }*@
-                                  
+                                <p class="text-muted mb-0">                                   
+                                    @if (@Model.CGender == 'F')
+                                    {
+                                        <div>Female</div>
+                                    }
+                                    else if (@Model.CGender == 'M')
+                                    {
+                                        <div>Female</div>
+                                    }
+                                    else if (@Model.CGender == 'O')
+                                    {
+                                        <div>Other</div>
+                                    }
+
                             </div>
                         </div>
                         <hr>
@@ -82,9 +89,8 @@
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
 </section>
-}

@@ -16,20 +16,19 @@ namespace FPTBook.Controllers
             this.context = context;
         }
 
-
         [Route("/")]
         public IActionResult Index()
         {
             return View();
         }
-
         public IActionResult Customer()
         {
             return View(context.Customers.ToList());
         }
-       
-
-
+        public IActionResult StoreOwner()
+        {
+            return View(context.StoreOwners.ToList());
+        }
 
         [HttpGet]
         public IActionResult EditCustomer(int? id)
@@ -67,7 +66,6 @@ namespace FPTBook.Controllers
             else
             {
                 return View(context.Customers.Find(id));
-
             }
         }
         public IActionResult DeleteCustomer(int? id)
@@ -78,7 +76,6 @@ namespace FPTBook.Controllers
             }
             else
             {
-
                 var cus = context.Customers.Find(id);                
                 context.Customers.Remove(cus);               
                 context.SaveChanges();
@@ -115,11 +112,11 @@ namespace FPTBook.Controllers
 
 
         //StoreOwner
-        /* public IActionResult StoreOwner()
-         {
-             var categories = context.Categories.ToList();
-             return View(context.Books.ToList());
-         }*/
+      /*  public IActionResult StoreOwner()
+        {
+            var categories = context.Categories.ToList();
+            return View(context.Books.ToList());
+        }*/
         public IActionResult Delete(int? id)
         {
             var book = context.Books.Find(id);
@@ -136,10 +133,7 @@ namespace FPTBook.Controllers
         }
 
         //StoreOwner
-        public IActionResult StoreOwner()
-        {
-            return View(context.StoreOwners.ToList());
-        }
+      
 
 
         [HttpGet]
@@ -178,7 +172,6 @@ namespace FPTBook.Controllers
             else
             {
                 return View(context.StoreOwners.Find(id));
-
             }
         }
         public IActionResult DeleteStoreOwner(int? id)

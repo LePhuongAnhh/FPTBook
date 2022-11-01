@@ -6,7 +6,6 @@ namespace FPTBook.Models
     {
         public int Id { get; set; }
         [StringLength(2, MinimumLength = 2, ErrorMessage = "Store Owner ID must be have 2 characters")]
-     //   [RegularExpression("^(S)[a-z,A-Z]*[0-9]{2}$")] //SId phải bắt đầu bằng S và kết thúc là 2 chữ số
         public string SId { get; set; }
         [MinLength(1, ErrorMessage = "Name length must be at least 1 character.")]
         [MaxLength(30, ErrorMessage = "Name should not exceed 30 characters.")]

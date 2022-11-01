@@ -1,11 +1,7 @@
 ﻿@model FPTBook.Models.Customer
-
-@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator")){
 <form method="post" asp-controller="Admin" asp-action="EditCustomer">
-    <h2 class="cangiua gachchan text-center">Edit Customer Account</h2>
-
+    <h2 class="cangiua gachchan text-center">Edit Customer Information</h2>
         <input class="form-control" asp-for="@Model.Id" hidden />
-
     <div class="form-group">
         <label class="h4 text-success" asp-for="@Model.CId">Customer's ID</label>
         <input class="form-control" asp-for="@Model.CId"  />
@@ -106,4 +102,3 @@
         <input type="submit" class="btn btn-warning" value="Edit" />       
     </div>
 </form>
-}

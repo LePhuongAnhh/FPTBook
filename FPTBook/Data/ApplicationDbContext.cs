@@ -29,15 +29,9 @@ namespace FPTBook.Data
         {
             base.OnModelCreating(builder);
             PopulateCategory(builder);
-            SeedBook(builder);
-
-            //add dữ liệu cho bảng User
-            SeedUser(builder);
-
-            //add dữ liệu cho bảng Role
+            SeedBook(builder);           
+            SeedUser(builder);           
             SeedRole(builder);
-
-            //add dữ liệu cho bảng UserRole
             SeedUserRole(builder);
         }
 
@@ -521,9 +515,8 @@ namespace FPTBook.Data
 
 
 
-        private void SeedUser(ModelBuilder builder)
-        {
-            //1. tạo tài khoản ban đầu để add vào DB
+        private void SeedUser(ModelBuilder builder)        {
+            
             var admin = new IdentityUser
             {
                 Id = "1",
@@ -551,14 +544,11 @@ namespace FPTBook.Data
             };
 
 
-            //2. khai báo thư viện để mã hóa mật khẩu
+          
             var hasher = new PasswordHasher<IdentityUser>();
-
-            //3. thiết lập và mã hóa mật khẩu từng tài khoản
             admin.PasswordHash = hasher.HashPassword(admin, "phuong123");
             staff.PasswordHash = hasher.HashPassword(staff, "duong123");
-            customer.PasswordHash = hasher.HashPassword(customer, "minh123");
-            //4. add tài khoản vào db
+            customer.PasswordHash = hasher.HashPassword(customer, "minh123");        
             builder.Entity<IdentityUser>().HasData(admin, staff, customer);
         }
 
@@ -582,8 +572,6 @@ namespace FPTBook.Data
                 Name = "Customer",
                 NormalizedName = "Customer"
             };
-
-            //2. add role vào trong DB
             builder.Entity<IdentityRole>().HasData(admin, staff, customer);
 
         }

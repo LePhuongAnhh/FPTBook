@@ -725,21 +725,21 @@ namespace FPTBook.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "08d229b9-2c0a-482b-8dcf-1965c368408e",
+                            ConcurrencyStamp = "81751074-322f-4a7f-866f-2b7023160f19",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "S",
-                            ConcurrencyStamp = "9d63fe78-20d2-4566-b6e0-e46953ff7a6e",
+                            ConcurrencyStamp = "05a6a9af-90d6-4514-87b7-17c61f38ca1a",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "60a20ea6-3d54-424d-9364-971439ac6951",
+                            ConcurrencyStamp = "8982c537-02b6-4660-90b8-e21e8d82e02c",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         });
@@ -838,14 +838,14 @@ namespace FPTBook.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e38f17ca-ab40-41c7-b578-a01818075895",
+                            ConcurrencyStamp = "eaf42c02-edc6-46e7-80eb-30fb1b21dc11",
                             Email = "anhltp@fpt.edu.vn",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "anhltp@fpt.edu.vn",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOv7rPh4qDLoKLsCQKjwvBoD3Dxl0mJlCLbmTWFUPmPKOmxEYLjwHSeURWEOHSq93A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEElf/7tSGD1PPTY1he8LUnBKhyTU34NnDVs9iAoQBw3tI1LsFzrpNEBMvL2hcpNUYA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c83d0653-eee2-4b79-bd7a-e8c9786e14c5",
+                            SecurityStamp = "2e7e3f7c-0779-4b4a-acfd-da9bab82759e",
                             TwoFactorEnabled = false,
                             UserName = "ad_leanh"
                         },
@@ -853,14 +853,14 @@ namespace FPTBook.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd7d4677-1214-4040-8787-d7df0e4f2e36",
+                            ConcurrencyStamp = "60e87ca1-8087-49d9-a1f6-a4cff523c412",
                             Email = "duonghtt@fpt.edu.vn",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "duonghtt@fpt.edu.vn",
-                            PasswordHash = "AQAAAAEAACcQAAAAENqb2yvnmxSvu/EY+DuUYAIE/WQktkENLVVvmvniLCJ9tEfcHBOWpB/eV65RcPtElA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH3e2Kpi4skBtijXsFeV8t+0ltVy1TJmend7OxHe8T7V+KMgG4tvRl0xQ3mXELYjcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ff3a1360-9a8b-45b1-9e8d-e7a4adae6684",
+                            SecurityStamp = "0eba2ac4-f5db-471f-8ecb-cb55f09e46af",
                             TwoFactorEnabled = false,
                             UserName = "s_duong"
                         },
@@ -868,14 +868,14 @@ namespace FPTBook.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2eaf626b-df26-483f-98c7-a47914ac865d",
+                            ConcurrencyStamp = "c9a4677e-7dbe-4f97-ad9a-4901af5548e4",
                             Email = "minhlt@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "minhlt@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKOtcjyFdgYk0gxohYMWy7tA5m7uP/2cPLmaqcRU/THa15XEPFwl0GzaZh7xGxwpQQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDfP2jYUy9lYDSdGtT5pwRYakRcS2T8OaJQ5OknWaDtIUxFG17r8AWO1bo8Gm+vt6g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "68f0f3b8-4e87-4f8b-a5f7-f1bd9d6ca58e",
+                            SecurityStamp = "5132edbd-58fa-4aa8-a2fa-d380c9132eea",
                             TwoFactorEnabled = false,
                             UserName = "cus_minh"
                         });

@@ -18,6 +18,8 @@ namespace FPTBook.Controllers
             return View();
         }
 
+
+        // oderS
         public IActionResult Order_Book(int id, int quantity)
         {
             Order order = new Order();

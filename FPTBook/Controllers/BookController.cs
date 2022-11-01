@@ -14,7 +14,6 @@ namespace FPTBook.Controllers
             this.context = context;
         }
 
-      
         //Homepage
         public IActionResult Index()
         {
@@ -71,7 +70,6 @@ namespace FPTBook.Controllers
             return View("Index", context.Books.Where(book => book.CategoryId == id).ToList());
         }
 
-        //admin
         [HttpGet]
         public IActionResult AddCustomer()
         {

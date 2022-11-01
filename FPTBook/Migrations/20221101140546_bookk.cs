@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FPTBook.Migrations
 {
-    public partial class a : Migration
+    public partial class bookk : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -285,9 +285,9 @@ namespace FPTBook.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "08d229b9-2c0a-482b-8dcf-1965c368408e", "Administrator", "Administrator" },
-                    { "S", "9d63fe78-20d2-4566-b6e0-e46953ff7a6e", "Staff", "Staff" },
-                    { "C", "60a20ea6-3d54-424d-9364-971439ac6951", "Customer", "Customer" }
+                    { "A", "81751074-322f-4a7f-866f-2b7023160f19", "Administrator", "Administrator" },
+                    { "S", "05a6a9af-90d6-4514-87b7-17c61f38ca1a", "Staff", "Staff" },
+                    { "C", "8982c537-02b6-4660-90b8-e21e8d82e02c", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -295,9 +295,9 @@ namespace FPTBook.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "e38f17ca-ab40-41c7-b578-a01818075895", "anhltp@fpt.edu.vn", true, false, null, null, "anhltp@fpt.edu.vn", "AQAAAAEAACcQAAAAEOv7rPh4qDLoKLsCQKjwvBoD3Dxl0mJlCLbmTWFUPmPKOmxEYLjwHSeURWEOHSq93A==", null, false, "c83d0653-eee2-4b79-bd7a-e8c9786e14c5", false, "ad_leanh" },
-                    { "2", 0, "cd7d4677-1214-4040-8787-d7df0e4f2e36", "duonghtt@fpt.edu.vn", true, false, null, null, "duonghtt@fpt.edu.vn", "AQAAAAEAACcQAAAAENqb2yvnmxSvu/EY+DuUYAIE/WQktkENLVVvmvniLCJ9tEfcHBOWpB/eV65RcPtElA==", null, false, "ff3a1360-9a8b-45b1-9e8d-e7a4adae6684", false, "s_duong" },
-                    { "3", 0, "2eaf626b-df26-483f-98c7-a47914ac865d", "minhlt@gmail.com", true, false, null, null, "minhlt@gmail.com", "AQAAAAEAACcQAAAAEKOtcjyFdgYk0gxohYMWy7tA5m7uP/2cPLmaqcRU/THa15XEPFwl0GzaZh7xGxwpQQ==", null, false, "68f0f3b8-4e87-4f8b-a5f7-f1bd9d6ca58e", false, "cus_minh" }
+                    { "1", 0, "eaf42c02-edc6-46e7-80eb-30fb1b21dc11", "anhltp@fpt.edu.vn", true, false, null, null, "anhltp@fpt.edu.vn", "AQAAAAEAACcQAAAAEElf/7tSGD1PPTY1he8LUnBKhyTU34NnDVs9iAoQBw3tI1LsFzrpNEBMvL2hcpNUYA==", null, false, "2e7e3f7c-0779-4b4a-acfd-da9bab82759e", false, "ad_leanh" },
+                    { "2", 0, "60e87ca1-8087-49d9-a1f6-a4cff523c412", "duonghtt@fpt.edu.vn", true, false, null, null, "duonghtt@fpt.edu.vn", "AQAAAAEAACcQAAAAEH3e2Kpi4skBtijXsFeV8t+0ltVy1TJmend7OxHe8T7V+KMgG4tvRl0xQ3mXELYjcQ==", null, false, "0eba2ac4-f5db-471f-8ecb-cb55f09e46af", false, "s_duong" },
+                    { "3", 0, "c9a4677e-7dbe-4f97-ad9a-4901af5548e4", "minhlt@gmail.com", true, false, null, null, "minhlt@gmail.com", "AQAAAAEAACcQAAAAEDfP2jYUy9lYDSdGtT5pwRYakRcS2T8OaJQ5OknWaDtIUxFG17r8AWO1bo8Gm+vt6g==", null, false, "5132edbd-58fa-4aa8-a2fa-d380c9132eea", false, "cus_minh" }
                 });
 
             migrationBuilder.InsertData(
